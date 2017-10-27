@@ -25,12 +25,6 @@ public class ServletDemo1 extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void init() throws ServletException {
-		System.out.println("init()");
-		super.init();
-	}
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
