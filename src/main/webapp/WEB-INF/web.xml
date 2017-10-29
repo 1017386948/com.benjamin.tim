@@ -6,6 +6,14 @@
 	<servlet>
 		<servlet-name>ServletDemo1222</servlet-name>
 		<servlet-class>http.study.ServletDemo1</servlet-class>
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>benjamin</param-value>
+		</init-param>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>12345</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ServletDemo1222</servlet-name>

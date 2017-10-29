@@ -10,6 +10,7 @@ import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/heiheihei")
 public class ServletDemo1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ServletConfig config;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -32,178 +34,27 @@ public class ServletDemo1 extends HttpServlet {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		this.config = config;
+	}
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println(
-				"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">");
-		out.println("<HTML>");
-		out.println("  <HEAD><TITLE>A Servlet</TITLE></HEAD>");
-		out.println("  <BODY>");
-		out.print("    This is ");
-		out.print(this.getClass());
-		out.println(", using the GET method");
-		out.println("  </BODY>");
-		out.println("</HTML>");
-		out.flush();
-		out.close();
-		ServletContext sc = new ServletContext() {
-
-			@Override
-			public void setAttribute(String name, Object object) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void removeAttribute(String name) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void log(String message, Throwable throwable) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void log(Exception exception, String msg) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void log(String msg) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public Enumeration getServlets() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public Enumeration getServletNames() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public String getServletContextName() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public Servlet getServlet(String name) throws ServletException {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public String getServerInfo() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public Set getResourcePaths(String path) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public InputStream getResourceAsStream(String path) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public URL getResource(String path) throws MalformedURLException {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public RequestDispatcher getRequestDispatcher(String path) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public String getRealPath(String path) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public RequestDispatcher getNamedDispatcher(String name) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public int getMinorVersion() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-
-			@Override
-			public String getMimeType(String file) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public int getMajorVersion() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-
-			@Override
-			public Enumeration getInitParameterNames() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public String getInitParameter(String name) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public String getContextPath() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public ServletContext getContext(String uripath) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public Enumeration getAttributeNames() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public Object getAttribute(String name) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-		};
+		response.setHeader("Content-Type", "text/html");
+		String paraVal = this.config.getInitParameter("name");
+		response.getWriter().print(paraVal);
+		response.getWriter().print("<hr/>");
+		Enumeration<String> e = config.getInitParameterNames();
+		while (e.hasMoreElements()) {
+			String name = e.nextElement();
+			String value = config.getInitParameter(name);
+			response.getWriter().print(name + "=" + value + "<br/>");
+		}
 	}
 
 	protected void doPost(HttpServletRequest request,
