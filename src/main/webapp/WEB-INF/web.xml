@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<servlet>
-		<servlet-name>ServletDemo1222</servlet-name>
+		<servlet-name>ServletDemo1</servlet-name>
 		<servlet-class>http.study.ServletDemo1</servlet-class>
 		<init-param>
 			<param-name>name</param-name>
@@ -16,7 +16,26 @@
 		</init-param>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>ServletDemo1222</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<servlet-name>ServletDemo1</servlet-name>
+		<url-pattern>/ServletDemo1222</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>servletdemo2</servlet-name>
+		<servlet-class>http.study.ServletDemo2</servlet-class>
+		<init-param>
+			<param-name>name</param-name>
+			<param-value>Joker</param-value>
+		</init-param>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>888888</param-value>
+		</init-param>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>servletdemo2</servlet-name>
+		<url-pattern>/ServletDemo2</url-pattern>
 	</servlet-mapping>
 </web-app>
