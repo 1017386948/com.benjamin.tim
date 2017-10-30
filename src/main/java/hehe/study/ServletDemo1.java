@@ -1,7 +1,6 @@
-package http.study;
+package hehe.study;
 
 import java.io.IOException;
-import java.io.OutputStream;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -22,8 +21,8 @@ public class ServletDemo1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		String data = "<h1><font color='red'>abcdefghjkl</font></h1>";
 		ServletContext context = this.getServletContext();
 		context.setAttribute("data", data);
@@ -32,8 +31,8 @@ public class ServletDemo1 extends HttpServlet {
 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 
