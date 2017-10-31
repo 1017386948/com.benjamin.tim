@@ -21,18 +21,18 @@ public class ServletDemo1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String data = "<h1><font color='red'>abcdefghjkl</font></h1>";
 		ServletContext context = this.getServletContext();
 		context.setAttribute("data", data);
-		RequestDispatcher rd = context.getRequestDispatcher("/ServletDemo2");
+		RequestDispatcher rd = context.getRequestDispatcher("/hohohoho");
 		rd.forward(request, response);
 
 	}
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 
