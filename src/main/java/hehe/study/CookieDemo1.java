@@ -3,20 +3,23 @@ package hehe.study;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.util.http.Cookies;
-
 /**
  * Servlet implementation class CookieDemo1
  */
-@WebServlet("/CookieDemo1")
+@WebServlet(name = "CookieDemo1", urlPatterns = {"/cookiedemo1",
+		"/CookieDemo1"}, initParams = {
+				@WebInitParam(name = "admin", value = "Harry"),
+				@WebInitParam(name = "password", value = "123456")})
 public class CookieDemo1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +28,6 @@ public class CookieDemo1 extends HttpServlet {
 	 */
 	public CookieDemo1() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -53,6 +55,16 @@ public class CookieDemo1 extends HttpServlet {
 				System.currentTimeMillis() + "");
 		cookie.setMaxAge(60);
 		response.addCookie(cookie);
+		@SuppressWarnings("unchecked")
+		Enumeration<String> e = this.getInitParameterNames();
+		while (e.hasMoreElements()) {
+			String name = e.nextElement();
+			out.write(name);
+			out.write(this.getInitParameter(name));
+		}
+
+		this.getServletContext();
+		getServletConfig();
 
 	}
 
