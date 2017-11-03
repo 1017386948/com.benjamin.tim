@@ -32,4 +32,8 @@
     <servlet-name>servletdemo2</servlet-name>
     <url-pattern>/ServletDemo2</url-pattern>
   </servlet-mapping>
+  
+  <welcome-file-list>
+  <welcome-file>/welcome.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>
