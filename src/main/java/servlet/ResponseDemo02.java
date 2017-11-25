@@ -1,5 +1,9 @@
-package hehe.study;
+package servlet;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
@@ -9,10 +13,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.image.*;
-import java.awt.Graphics2D;
-import java.awt.Color;
-import java.awt.Font;
 
 /**
  * Servlet implementation class ResponseDemo02
@@ -40,15 +40,15 @@ public class ResponseDemo02 extends HttpServlet {
 		Graphics2D g = (Graphics2D) image.getGraphics();
 		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, 80, 20);
-		g.setColor(Color.BLUE);// ÉèÖÃÍ¼Æ¬ÉÏ×ÖÌåµÄÑÕÉ«
+		g.setColor(Color.BLUE);// ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 		g.setFont(new Font(null, Font.BOLD, 20));
 		g.drawString(makeNum(), 0, 20);
-		response.setContentType("image/jpeg");// µÈÍ¬ÓÚresponse.setHeader("Content-Type",
+		response.setContentType("image/jpeg");// ï¿½ï¿½Í¬ï¿½ï¿½response.setHeader("Content-Type",
 												// "image/jpeg");
 		response.setDateHeader("expries", -1);
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
-		// 6.½«Í¼Æ¬Ð´¸øä¯ÀÀÆ÷
+		// 6.ï¿½ï¿½Í¼Æ¬Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		ImageIO.write(image, "jpg", response.getOutputStream());
 	}
 

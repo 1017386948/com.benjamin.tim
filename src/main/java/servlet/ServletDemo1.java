@@ -1,4 +1,4 @@
-package hehe.study;
+package servlet;
 
 import java.io.IOException;
 

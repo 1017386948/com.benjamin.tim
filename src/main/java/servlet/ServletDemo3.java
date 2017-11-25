@@ -1,4 +1,4 @@
-package hehe.study;
+package servlet;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,7 +37,7 @@ public class ServletDemo3 extends HttpServlet {
 		String url = prop.getProperty("url");
 		String username = prop.getProperty("username");
 		String password = prop.getProperty("password");
-		response.getWriter().println("��ȡsrcĿ¼�µ�db1.properties�����ļ���");
+		response.getWriter().println("");
 		response.getWriter().println(
 				MessageFormat.format("driver={0},url={1},username={2},password={3}", drive, url, username, password));
 	}
