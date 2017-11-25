@@ -1,4 +1,4 @@
-package hehe.study;
+package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,10 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CookieDemo1
  */
-@WebServlet(name = "CookieDemo1", urlPatterns = {"/cookiedemo1",
-		"/CookieDemo1"}, initParams = {
-				@WebInitParam(name = "admin", value = "Harry"),
-				@WebInitParam(name = "password", value = "123456")})
+@WebServlet(name = "CookieDemo1", urlPatterns = { "/cookiedemo1", "/CookieDemo1" }, initParams = {
+		@WebInitParam(name = "admin", value = "Harry"), @WebInitParam(name = "password", value = "123456") })
 public class CookieDemo1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -34,14 +32,13 @@ public class CookieDemo1 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		Cookie[] cookies = request.getCookies();
 		if (cookies != null) {
-			out.write("您上次访问的时间是：");
 			for (int i = 0; i < cookies.length; i++) {
 				Cookie cookie = cookies[i];
 				Long lastAccessTime = Long.parseLong(cookie.getValue());
@@ -49,10 +46,8 @@ public class CookieDemo1 extends HttpServlet {
 				out.write(date.toString());
 			}
 		} else {
-			out.write("这是您第一次访问本站！");
 		}
-		Cookie cookie = new Cookie("lastAccessTime",
-				System.currentTimeMillis() + "");
+		Cookie cookie = new Cookie("lastAccessTime", System.currentTimeMillis() + "");
 		cookie.setMaxAge(60);
 		response.addCookie(cookie);
 		@SuppressWarnings("unchecked")
@@ -72,8 +67,8 @@ public class CookieDemo1 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

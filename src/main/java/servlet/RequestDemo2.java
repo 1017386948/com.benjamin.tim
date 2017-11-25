@@ -1,4 +1,4 @@
-package hehe.study;
+package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,24 +29,24 @@ public class RequestDemo2 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		response.setHeader("content-type", "text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		Enumeration<String> reqHeadInfos = request.getHeaderNames();// 获取所有的请求头
-		out.write("获取到的客户端所有的请求头信息如下：");
+		@SuppressWarnings("unchecked")
+		Enumeration<String> reqHeadInfos = request.getHeaderNames();// 锟斤拷取锟斤拷锟叫碉拷锟斤拷锟斤拷头
 		out.write("<hr/>");
 		while (reqHeadInfos.hasMoreElements()) {
 			String headName = (String) reqHeadInfos.nextElement();
-			String headValue = request.getHeader(headName);// 根据请求头的名字获取对应的请求头的值
+			String headValue = request.getHeader(headName);// 锟斤拷锟斤拷锟斤拷锟斤拷头锟斤拷锟斤拷锟街伙拷取锟斤拷应锟斤拷锟斤拷锟斤拷头锟斤拷值
 			out.write(headName + ":" + headValue);
 			out.write("<br/>");
 		}
 		out.write("<br/>");
-		out.write("获取到的客户端Accept-Encoding请求头的值：");
+		out.write("锟斤拷取锟斤拷锟侥客伙拷锟斤拷Accept-Encoding锟斤拷锟斤拷头锟斤拷值锟斤拷");
 		out.write("<hr/>");
-		String value = request.getHeader("Accept-Encoding");// 获取Accept-Encoding请求头对应的值
+		String value = request.getHeader("Accept-Encoding");// 锟斤拷取Accept-Encoding锟斤拷锟斤拷头锟斤拷应锟斤拷值
 		out.write(value);
 
 	}
@@ -55,8 +55,8 @@ public class RequestDemo2 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

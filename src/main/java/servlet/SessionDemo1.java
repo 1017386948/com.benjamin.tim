@@ -1,4 +1,4 @@
-package hehe.study;
+package servlet;
 
 import java.io.IOException;
 
@@ -36,10 +36,10 @@ public class SessionDemo1 extends HttpServlet {
 		session.setAttribute("date", "heheda");
 		String sessionId = session.getId();
 		if (session.isNew()) {
-			response.getWriter().print("session创建成功，session的id是：" + sessionId);
+			response.getWriter().print("" + sessionId);
 		} else {
 			response.getWriter()
-					.print("服务器已经存在该session了，session的id是：" + sessionId);
+					.print("" + sessionId);
 		}
 	}
 

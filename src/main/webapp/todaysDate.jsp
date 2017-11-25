@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.DateFormat"%>
@@ -12,17 +12,18 @@
 <title>Today's date</title>
 </head>
 <body>
+	<jsp:forward page="welcome.jsp">
+	<jsp:param name="text" value="Please login"/>
+	</jsp:forward>
 	<%
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String s = dateFormat.format(new Date());
 		out.write(s);
 
 		pageContext.setAttribute("hehe", 11111L, pageContext.SESSION_SCOPE);
-		for (Enumeration<String> e = request.getHeaderNames(); e
-				.hasMoreElements();) {
+		for (Enumeration<String> e = request.getHeaderNames(); e.hasMoreElements();) {
 			String header = e.nextElement();
-			out.println(
-					header + ": " + request.getHeader(header) + "<br/>");
+			out.println(header + ": " + request.getHeader(header) + "<br/>");
 		}
 	%>
 </body>
