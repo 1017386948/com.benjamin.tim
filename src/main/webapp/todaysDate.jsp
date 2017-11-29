@@ -20,11 +20,11 @@
 		String s = dateFormat.format(new Date());
 		out.write(s);
 
-		pageContext.setAttribute("hehe", 11111L, pageContext.SESSION_SCOPE);
+	/* 	pageContext.setAttribute("hehe", 11111L, pageContext.SESSION_SCOPE);
 		for (Enumeration<String> e = request.getHeaderNames(); e.hasMoreElements();) {
 			String header = e.nextElement();
 			out.println(header + ": " + request.getHeader(header) + "<br/>");
-		}
+		} */
 	%>
 </body>
 </html>
